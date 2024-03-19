@@ -1,0 +1,19 @@
+administer content_poll:
+  title: 'Administer content polls'
+  restrict access: true
+view content_poll:
+  title: 'View content poll'
+edit content_poll:
+  title: 'Edit content poll'
+delete content_poll:
+  title: 'Delete content poll'
+create content_poll:
+  title: 'Create content poll'
+
+administer content_poll_option:
+  title: 'Administer content poll options'
+  restrict access: true
+
+administer content_poll_response:
+  title: 'Administer content poll responses'
+  restrict access: true

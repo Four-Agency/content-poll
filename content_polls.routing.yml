@@ -1,0 +1,22 @@
+entity.content_poll.settings:
+  path: 'admin/structure/content-polls-content-poll'
+  defaults:
+    _form: '\Drupal\content_polls\Form\ContentPollSettingsForm'
+    _title: 'Poll'
+  requirements:
+    _permission: 'administer content_poll'
+
+entity.content_poll_option.settings:
+  path: 'admin/structure/content-polls-content-poll-option'
+  defaults:
+    _form: '\Drupal\content_polls\Form\ContentPollOptionSettingsForm'
+    _title: 'Poll option'
+  requirements:
+    _permission: 'administer content_poll_option'
+
+content_polls.poll_submit:
+  path: 'poll/submit'
+  defaults:
+    _controller: '\Drupal\content_polls\Controller\PollController::submit'
+  requirements:
+    _access: 'TRUE'

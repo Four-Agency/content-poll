@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_polls
+id: content_poll_option_delete_action
+label: 'Delete content poll options'
+type: content_poll_option
+plugin: entity:delete_action:content_poll_option
+configuration: {}

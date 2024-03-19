@@ -1,0 +1,77 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Provides a content poll option entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function content_polls_theme(): array
+{
+  return [
+    'content_poll' => ['render element' => 'elements'],
+    'content_poll_option' => ['render element' => 'elements']
+  ];
+}
+
+function template_preprocess_content_poll(array &$variables): void
+{
+  if ($content_poll = $variables['elements']['#content_poll']) {
+    $variables['content']['id'] = $content_poll->id();
+    // First we check if the poll is open for voting using the status flag and the date range field
+    $status_is_open = $content_poll->get('status')->value === "1";
+    $start_date = $content_poll->get('dates')->value;
+    $end_date = $content_poll->get('dates')->end_value;
+    $current_time = time();
+    $variables['isOpen'] = !!($status_is_open && $current_time >= strtotime($start_date) && $current_time <= strtotime($end_date));
+    $variables['notStarted'] = strtotime($start_date) > $current_time;
+    // Next we check if the user has already completed the poll by checking for a 'poll_<poll_id>' cookie.  If present this cookie should contain the ID of the option they voted for.
+    $poll_completed_cookie = \Drupal::request()->cookies->get('poll_' . $content_poll->id());
+    if (is_null($poll_completed_cookie)) {
+      $variables['isCompleted'] = false;
+    } else {
+      $variables['isCompleted'] = true;
+      $variables['selectedOption'] = $poll_completed_cookie;
+    }
+  }
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+
+  $variables['#attached'] = ['library' => ['content_polls/polls']];
+  $variables['#cache']['max-age'] = 0;
+}
+
+function template_preprocess_content_poll_option(array &$variables): void
+{
+  $option = $variables['elements']['#content_poll_option'];
+  $polls = \Drupal::entityTypeManager()->getStorage('content_poll')->loadByProperties(['poll_options' => $option->id()]);
+  $variables['voted'] = false;
+  $variables['selected'] = false;
+  if (count($polls) === 1) {
+    $poll = reset($polls);
+    $existing_vote = \Drupal::request()->cookies->get("poll_" . $poll->id());
+    $variables['voted'] = !is_null($existing_vote);
+    if ($existing_vote === $option->id()) {
+      $variables['attributes']['class'][] = 'voted';
+      $variables['selected'] = true;
+    }
+  }
+
+  $variables['id'] = $option->id();
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+  $variables['view_more'] = $option->get('view_more_link')->uri;
+  $variables['attributes']['class'][] = 'poll-option';
+  $variables['#cache']['max-age'] = 0;
+}

@@ -1,0 +1,28 @@
+entity.content_poll.settings:
+  title: 'Poll'
+  description: 'Configure a Content poll entity type.'
+  route_name: entity.content_poll.settings
+  parent: system.admin_structure
+
+entity.content_poll.collection:
+  title: 'Polls'
+  description: 'List of content polls.'
+  route_name: entity.content_poll.collection
+  parent: system.admin_content
+
+entity.content_poll_option.settings:
+  title: 'Poll option'
+  description: 'Configure a Content poll option entity type.'
+  route_name: entity.content_poll_option.settings
+  parent: system.admin_structure
+# entity.content_poll_option.collection:
+#   title: 'Content poll options'
+#   description: 'List of content poll options.'
+#   route_name: entity.content_poll_option.collection
+#   parent: system.admin_content
+
+# entity.content_poll_response.collection:
+#   title: 'Content poll responses'
+#   description: 'List of content poll responses.'
+#   route_name: entity.content_poll_response.collection
+#   parent: system.admin_content

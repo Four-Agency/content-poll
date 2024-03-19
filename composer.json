@@ -1,0 +1,15 @@
+{
+  "name": "four/content_polls",
+  "description": "Create simple polls for Drupal sites",
+  "type": "drupal-module",
+  "authors": [
+    {
+      "name": "Abhinav Bajpai",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/paragraphs": "^1.15",
+    "drupal/inline_entity_form": "^3.0@RC"
+  }
+}

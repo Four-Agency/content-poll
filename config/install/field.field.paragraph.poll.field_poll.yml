@@ -1,0 +1,32 @@
+uuid: a45cdc08-fc52-48e8-90d8-e76eea765513
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_poll
+    - paragraphs.paragraphs_type.poll
+  module:
+    - entity_reference_purger
+third_party_settings:
+  entity_reference_purger:
+    remove_orphaned: true
+    use_queue: true
+id: paragraph.poll.field_poll
+field_name: field_poll
+entity_type: paragraph
+bundle: poll
+label: Poll
+description: ''
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings:
+  handler: 'default:content_poll'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

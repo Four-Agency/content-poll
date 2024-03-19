@@ -1,0 +1,19 @@
+<div class="poll-wrapper" data-poll-id="{{ content.id }}">
+	<h2>{{ content.label }}</h2>
+
+	{% if isOpen %}
+		{% if (not isCompleted) %}
+			{{ content.intro_text }}
+		{% else %}
+			{{ content.completion_text }}
+		{% endif %}
+		{{ content.poll_options}}
+	{% else %}
+		{% if notStarted %}
+			{{ content.unopened_text}}
+		{% else %}
+			{{ content.closed_text }}
+		{% endif %}
+	{% endif %}
+
+</div>

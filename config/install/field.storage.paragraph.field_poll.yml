@@ -1,0 +1,20 @@
+uuid: 4319f63b-6175-443f-bc05-457343989a50
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_polls
+    - paragraphs
+id: paragraph.field_poll
+field_name: field_poll
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: content_poll
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {}
+persist_with_no_fields: false
+custom_storage: false

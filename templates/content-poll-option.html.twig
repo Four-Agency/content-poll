@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a content poll option entity.
+ *
+ * This template is used when viewing a canonical content poll option page,
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.label'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_content_poll_option()
+ */
+#}
+
+
+<article{{attributes}} data-option-id="{{ id }}">
+	{% if selected %}
+		<div class="poll-option-voted-marker">Your selection</div>
+	{% endif %}
+	{% if view_mode != 'full' %}
+		{{ title_prefix }}
+		{{ title_suffix }}
+	{% endif %}
+	{% if content %}
+		{{- content | without(label) -}}
+	{% endif %}
+	<div class="poll-option-buttons">
+		{% if(view_more) %}
+			<a href="{{view_more}}">View more</a>
+		{% endif %}
+		{% if(not voted) %}
+			<a class="poll-option-button" href="#">Vote</a>
+		{% endif %}
+	</div>
+</article>

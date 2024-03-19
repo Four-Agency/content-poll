@@ -1,0 +1,9 @@
+name: 'Custom Tokens'
+type: module
+description: 'Custom tokens for better integration with viewfield args'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:datetime_range
+  - paragraphs:paragraphs
+  - inline_entity_form

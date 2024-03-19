@@ -1,0 +1,11 @@
+content_poll.add_form:
+  title: 'Add poll'
+  route_name: entity.content_poll.add_form
+  appears_on:
+    - entity.content_poll.collection
+
+content_poll_option.add_form:
+  title: 'Add poll option'
+  route_name: entity.content_poll_option.add_form
+  appears_on:
+    - entity.content_poll_option.collection

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_polls
+id: content_poll_option_save_action
+label: 'Save content poll options'
+type: content_poll_option
+plugin: entity:save_action:content_poll_option
+configuration: {}
