@@ -28,6 +28,7 @@ use Drupal\user\EntityOwnerTrait;
  *   handlers = {
  *     "list_builder" = "Drupal\content_polls\ContentPollOptionListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "access" = "Drupal\content_polls\ContentPollOptionAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\content_polls\Form\ContentPollOptionForm",
  *       "edit" = "Drupal\content_polls\Form\ContentPollOptionForm",

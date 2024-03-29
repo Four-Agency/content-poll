@@ -13,6 +13,14 @@ create content_poll:
 administer content_poll_option:
   title: 'Administer content poll options'
   restrict access: true
+view content_poll_option:
+  title: 'View content poll option'
+edit content_poll_option:
+  title: 'Edit content poll option'
+delete content_poll_option:
+  title: 'Delete content poll option'
+create content_poll_option:
+  title: 'Create content poll option'
 
 administer content_poll_response:
   title: 'Administer content poll responses'
