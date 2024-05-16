@@ -34,7 +34,7 @@ pollWrappers.forEach((pollWrapper) => {
               pollOption.classList.add('voted');
               pollOption.insertAdjacentHTML(
                 'afterbegin',
-                '<div class="poll-option-voted-marker">Your selection</div>'
+                '<div class="poll-option-voted-marker">Your vote</div>'
               );
               if (result.completion_text) {
                 pollWrapper
