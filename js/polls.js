@@ -38,9 +38,8 @@ pollWrappers.forEach((pollWrapper) => {
               );
               if (result.completion_text) {
                 pollWrapper
-                  .querySelector('.field--name-intro-text')
-                  .insertAdjacentHTML('afterend', result.completion_text);
-                pollWrapper.querySelector('.field--name-intro-text').remove();
+                  .querySelector('.field--name-poll-options')
+                  .insertAdjacentHTML('beforebegin', result.completion_text);
               }
             }
           } catch (error) {
