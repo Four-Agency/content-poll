@@ -32,7 +32,7 @@ pollWrappers.forEach((pollWrapper) => {
                 .forEach((pollOptionButtons) => pollOptionButtons.remove());
               Cookies.set(cookieName, optionId, { expires: 365 });
               pollOption.classList.add('voted');
-              pollOption.insertAdjacentHTML(
+              pollOption.querySelector('.poll-image').insertAdjacentHTML(
                 'afterbegin',
                 '<div class="poll-option-voted-marker">Your vote</div>'
               );
