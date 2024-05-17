@@ -34,7 +34,7 @@ pollWrappers.forEach((pollWrapper) => {
               pollOption.classList.add('voted');
               pollOption.querySelector('.poll-image').insertAdjacentHTML(
                 'afterbegin',
-                '<div class="poll-option-voted-marker">Your vote</div>'
+                '<div class="poll-option-voted-marker">Your selection</div>'
               );
               if (result.completion_text) {
                 pollWrapper
