@@ -77,6 +77,12 @@ final class ContentPoll extends ContentEntityBase implements ContentPollInterfac
     }
   }
 
+  public function getCacheMaxAge()
+  {
+    \Drupal::service('page_cache_kill_switch')->trigger();
+    return 0;
+  }
+
   /**
    * {@inheritdoc}
    */
